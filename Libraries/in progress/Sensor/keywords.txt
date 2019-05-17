@@ -1,0 +1,12 @@
+# -----------------------------------------
+# Syntax colouring for RsbLib demo library
+# -----------------------------------------
+
+# Datatypes (such as objects)
+Sensor	KEYWORD1
+
+#Methods / functions
+measure 	KEYWORD2
+
+# Constants
+
