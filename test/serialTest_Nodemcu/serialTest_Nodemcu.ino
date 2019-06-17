@@ -1,18 +1,18 @@
 #include <SoftwareSerial.h>
-SoftwareSerial s(D6,D5);
-int data;
+SoftwareSerial s(12 , 14);
+int data = 0;
+
 void setup() {
-s.begin(9600);
-Serial.begin(9600);
+  s.begin(9600);
 }
  
 void loop() {
-  s.write("s");
+  
+  s.write("ok");
+  
   if (s.available()>0)
   {
     data=s.read();
-    Serial.println(data);
   }
- 
- 
+  s.println(data);
 }

@@ -1,16 +1,16 @@
- #include <TinyGPS++.h>
+#include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 /*
- * Original library source: https://github.com/mikalhart/TinyGPSPlus
+   Original library source: https://github.com/mikalhart/TinyGPSPlus
    This sample sketch demonstrates the normal use of a TinyGPS++ (TinyGPSPlus) object.
    It requires the use of SoftwareSerial, and assumes that you have a
    4800-baud serial GPS device hooked up on pins 3(rx) and 4(tx).
 
-   modefied by Ahmad Shamshiri for Robojax.com 
+   modefied by Ahmad Shamshiri for Robojax.com
    on September 09, 2018 at 20:20 in Ajax, Ontario, Canada
    Watch video instruction for this code:https://youtu.be/hbRpr1HbDf8
 */
-static const int RXPin = 3, TXPin = 4;
+static const int RXPin = 05, TXPin = 04;
 static const uint32_t GPSBaud = 9600;
 
 // The TinyGPS++ object
@@ -42,14 +42,14 @@ void loop()
   if (millis() > 5000 && gps.charsProcessed() < 10)
   {
     Serial.println(F("No GPS detected: check wiring."));
-    while(true);
+    while (true);
   }
- delay(100);
+  delay(1000);
 }
 
 void displayInfo()
 {
-  Serial.print(F("Location: ")); 
+  Serial.print(F("Location: "));
   if (gps.location.isValid())
   {
     Serial.print(gps.location.lat(), 6);
