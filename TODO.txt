@@ -1,5 +1,0 @@
-1. få arduino'en og nodemcu'en til at snakke sammen.
-
-2. få bilen til at kunne køre til et gps koordinat (latitude og longitude).
-
-3. få bilen til at kunne undvige forhindringer (få bilen til at tjekke afstand, og tage rette beslutninger baseret på det).

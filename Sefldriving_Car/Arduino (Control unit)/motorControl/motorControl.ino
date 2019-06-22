@@ -1,8 +1,13 @@
 #include <MotorLib.h>
 const int backward = true, forward = false, highSpeed = 2, lowSpeed = 1, stopMotor = 0, speedPin = 5, directionPin = 0;
-Motor motor(speedPin, directionPin);
+
 int speedIn = D8;
 int directionIn = D7;
+
+Motor motor(speedPin, directionPin);
+
+int newSpeed = 0;
+bool newDirection = forward, justStopped = false;
 
 void setup() {
   motor.setupPins(speedPin, directionPin);
@@ -11,9 +16,11 @@ void setup() {
 }
 
 void loop() {
-  int newSpeed = digitalRead(speedIn);
-  int newDirection = digitalRead(directionIn);
-  switch (speedIn) {
+  
+  int newSpe = digitalRead(speedIn);
+  int newDir = digitalRead(directionIn);
+  
+  switch (newSpe) {
     case LOW:
       newSpeed = stopMotor;
       break;
@@ -23,7 +30,7 @@ void loop() {
       break;
     }
 
-  switch (directionIn){
+  switch (newDir){
     case LOW:
       newDirection = false;
       break;
@@ -32,9 +39,11 @@ void loop() {
       newDirection = true;
       break;
     }
-  if (newSpeed == LOW && newDirection == LOW){
+  if (newSpe == LOW && newDir == LOW && justStopped == false){
       motor.setSpeed(lowSpeed, backward);
-      delay(100);
+      delay(50);
+      justStopped = 1;
     }
+  
   motor.setSpeed(newSpeed, newDirection);
 }
