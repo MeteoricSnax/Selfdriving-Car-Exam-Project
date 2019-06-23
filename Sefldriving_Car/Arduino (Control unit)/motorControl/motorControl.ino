@@ -39,11 +39,6 @@ void loop() {
       newDirection = true;
       break;
     }
-  if (newSpe == LOW && newDir == LOW && justStopped == false){
-      motor.setSpeed(lowSpeed, backward);
-      delay(50);
-      justStopped = 1;
-    }
   
   motor.setSpeed(newSpeed, newDirection);
 }
